@@ -196,18 +196,18 @@ describe (测试套件的名称,function(){
 ### .itself:.respondTo添加.itself,判断它自身有没有该方法而不是从prototype判断
 ### .satisfy(matcher[, msg]):断言目标值在给定的函数中返回真值,msg(错误消息)
 ### .closeTo(expected, delta[, msg])/.approximately(expected, delta[, msg]):断言目标值在expected的+/-delta范围内
->>>>目标是一个函数时，判断目标prototype有没有该方法
+目标是一个函数时，判断目标prototype有没有该方法
     function Cat () {}
     Cat.prototype.meow = function () {};
     expect(Cat).to.respondTo('meow');
->>>>目标是一个函数时，.respondTo添加.itself,判断它自身有没有该方法而不是从prototype判断
+目标是一个函数时，.respondTo添加.itself,判断它自身有没有该方法而不是从prototype判断
     function Cat() { }
     Cat.prototype.meow = function () { };
     Cat.hiss = function () { };
     expect(Cat).itself.to.respondTo('hiss').but.not.respondTo('meow');
->>>>>断言目标值在给定的函数中返回真值
+断言目标值在给定的函数中返回真值
     expect(1,'错误消息').to.satisfy(function(num) {
         return num > 0; 
     });
->>>>>closeTo接受第三个可选参数msg来自定义错误消息，也可以加上第二个参数给expect(),不推荐
+closeTo接受第三个可选参数msg来自定义错误消息，也可以加上第二个参数给expect(),不推荐
     expect(1.5).to.be.closeTo(3, 1, 'nooo why fail??');
