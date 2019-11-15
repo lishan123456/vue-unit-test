@@ -20,12 +20,9 @@ describe (测试套件的名称,function(){
     expect(2).to.be.equals(2);
 
 ### .not:否定在其之后链接的所有断言
->>>>>这个函数没有异常
-    expect(function () {}).to.be.not.throw() ;
->>>>>这个对象没有b属性
-    expect({a: 1}).to.not.have.property('a');
->>>>>它是一个数组，里面不包含3
-    expect([1, 2, 3]).to.be.an('array').that.does.not.include(3);
+    expect(function () {}).to.be.not.throw();//这个函数没有异常
+    expect({a: 1}).to.not.have.property('a');//这个对象没有b属性
+    expect([1, 2, 3]).to.be.an('array').that.does.not.include(3);//它是一个数组，里面不包含3
 
 ### .deep:判断值相等，而不是严格的相等(===)  
 ### .eql相当于(.deep.equal)
