@@ -11,21 +11,21 @@ describe (测试套件的名称,function(){
 ### 断言库的用法：
 ### .to .be .been .is .that .which .and .has .hava .with .at .of .same .but .does .still
 ### .to.be、.to：作为连接两个方法的链式方法
-    expect(function(){}).to.be.true
-    expect(function(){}).to.true
+    expect(function(){}).to.be.true;
+    expect(function(){}).to.true;
 
 ### .equal/.eq/.equals:输入和输出结果相等
-    expect(0).to.be.eq(0)
-    expect(1).to.be.equal(1)
-    expect(2).to.be.equals(2)
+    expect(0).to.be.eq(0);
+    expect(1).to.be.equal(1);
+    expect(2).to.be.equals(2);
 
 ### .not:否定在其之后链接的所有断言
 >>>>>这个函数没有异常
-    expect(function () {}).to.be.not.throw() 
+    expect(function () {}).to.be.not.throw() ;
 >>>>>这个对象没有b属性
-    expect({a: 1}).to.not.have.property('a')
+    expect({a: 1}).to.not.have.property('a');
 >>>>>它是一个数组，里面不包含3
-    expect([1, 2, 3]).to.be.an('array').that.does.not.include(3)
+    expect([1, 2, 3]).to.be.an('array').that.does.not.include(3);
 
 ### .deep:判断值相等，而不是严格的相等(===)  
 ### .eql相当于(.deep.equal)
@@ -46,12 +46,12 @@ describe (测试套件的名称,function(){
 ### .sealed:断言目标是密封的（不能添加新属性，已存在属性不能修改和删除）
 ### .extensible:断言目标可扩展（可添加新属性）
 >>>>>本身含有a这个属性,不是从继承来的
-    expect({a: 1}).to.have.own.property('a') 
+    expect({a: 1}).to.have.own.property('a') ;
 >>>>>含有b这个属性,但本身不含有b这个属性,继承来的
     Object.prototype.b = 2;
     expect({a: 1}).to.have.property('b').but.not.own.property('b')
 >>>>>断言目标有a这个属性,值为1
-    expect({ a: 1 }).to.have.property('a', 1)
+    expect({ a: 1 }).to.have.property('a', 1);
 >>>>>断言目标不能添加新属性,已存在属性不能修改和删除
     var frozenObject = Object.freeze({}); //冻结对象
     expect(frozenObject).to.be.frozen;
@@ -196,18 +196,18 @@ describe (测试套件的名称,function(){
 ### .itself:.respondTo添加.itself,判断它自身有没有该方法而不是从prototype判断
 ### .satisfy(matcher[, msg]):断言目标值在给定的函数中返回真值,msg(错误消息)
 ### .closeTo(expected, delta[, msg])/.approximately(expected, delta[, msg]):断言目标值在expected的+/-delta范围内
-目标是一个函数时，判断目标prototype有没有该方法
+>>>>目标是一个函数时，判断目标prototype有没有该方法
     function Cat () {}
     Cat.prototype.meow = function () {};
     expect(Cat).to.respondTo('meow');
-目标是一个函数时，.respondTo添加.itself,判断它自身有没有该方法而不是从prototype判断
+>>>>目标是一个函数时，.respondTo添加.itself,判断它自身有没有该方法而不是从prototype判断
     function Cat() { }
     Cat.prototype.meow = function () { };
     Cat.hiss = function () { };
     expect(Cat).itself.to.respondTo('hiss').but.not.respondTo('meow');
-断言目标值在给定的函数中返回真值
+>>>>>断言目标值在给定的函数中返回真值
     expect(1,'错误消息').to.satisfy(function(num) {
         return num > 0; 
     });
-closeTo接受第三个可选参数msg来自定义错误消息，也可以加上第二个参数给expect(),不推荐
+>>>>>closeTo接受第三个可选参数msg来自定义错误消息，也可以加上第二个参数给expect(),不推荐
     expect(1.5).to.be.closeTo(3, 1, 'nooo why fail??');
