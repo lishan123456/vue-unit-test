@@ -1,12 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <h1 class="h1">测试案例介绍</h1>
+    <ol id="nav">
+      <router-link tag="li" to="/list">My To Do List</router-link>
+      <router-link tag="li" to="/common">The test method</router-link>
+      <router-link tag="li" to="/list">案例介绍</router-link>
+      <router-link tag="li" to="/list">案例介绍</router-link>
+      <router-link tag="li" to="/list">案例介绍</router-link>
+      <router-link tag="li" to="/list">案例介绍</router-link>
+    </ol>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  date () {
+    return {
+      
+    }
+  },
+  
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -16,17 +32,9 @@
   text-align: center;
   color: #2c3e50;
 }
-
+.h1 {font-size: 30px;text-align: left;}
 #nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  list-style-type: upper-roman;
+  li {text-align: left;font-size: 15px;}
 }
 </style>
